@@ -2,7 +2,7 @@
 var lf = (stringLiteralArray, ...values) => {
   return stringLiteralArray.reduce((result, literal, index) => {
     const transformedString = transformLineEnding(literal, LineEndings.LF)
-    let transformedValue = ( values[index] != null ? values[index]: "")
+    let transformedValue = ( values[index] != null ? values[index] : "")
     
     if(!Object.getOwnPropertySymbols(transformedValue).includes(disableConverter)) {
       transformedValue = transformLineEnding(transformedValue, LineEndings.LF)
@@ -13,10 +13,30 @@ var lf = (stringLiteralArray, ...values) => {
 };
 
 // Create a tagged template cr`...` that formats text using CR line endings.
-var cr = () => {};
+var cr = (string, ...values) => {
+  return string.reduce((result, literal, index) => {
+    const transformedString = transformLineEnding(literal, LineEndings.CR)
+    let transformedValue = (value[index] != null ? values[index] : "")
+
+    if(!Object.getOwnPropertySymbols(transformedValue).includes(disableConverter)) {
+      transformedValue = transformLineEnding(transformedValue, LineEndings.CR)
+    }
+    return `${result}${transformedString}${transformedValue}`
+  }, "")
+};
 
 // Create a tagged template crlf`...` that formats text using CRLF line endings.
-var crlf = () => {};
+var crlf = (string, ...values) => {
+  return string.reduce((result, literal, index) => {
+    const transformedString = transformLineEnding(literal, LineEndings.CRLF)
+    let transformedValue = (value[index] != null ? values[index] : "")
+
+    if(!Object.getOwnPropertySymbols(transformedValue).includes(disableConverter)) {
+      transformedValue = transformLineEnding(transformedValue, LineEndings.CRLF)
+    }
+    return `${result}${transformedString}${transformedValue}`
+  }, "")
+};
 
 const transformLineEnding = (string, lineEnding) => {
   const {replaceCR, replaceLF, replaceCRLF} = LineEndingReplacements
