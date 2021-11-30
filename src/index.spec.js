@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+const { assert } = require("chai")
 const { describe, it } = require("mocha");
 const { lf } = global.lf || require("index.js");
 
@@ -6,7 +7,7 @@ describe("CRLF Converter", () => {
   describe("lf", () => {
     it("should replace CRLF at the beginning of a string", () => {
       const result = lf`\r\nHello there.`;
-    String.prototype.startsWith(`\r\nHello`)
+      assert(result.startsWith("\nHello"))
     });
 
     it("should replace CRLF at the end of a string", () => {
