@@ -1,11 +1,11 @@
 // Create a tagged template lf`...` that formats text using LF line endings.
 var lf = (stringLiteralArray, ...values) => {
   return stringLiteralArray.reduce((result, literal, index) => {
-    const transformedString = transformLineEnding(literal, LineEnding.LF)
+    const transformedString = transformLineEnding(literal, LineEndings.LF)
 
     const transformedValue = (
       values[index] != null 
-      ? transformLineEnding(values[index], LineEnding.LF)
+      ? transformLineEnding(values[index], LineEndings.LF)
       : "")
     
       return `${result}${transformedString}${transformedValue}`
