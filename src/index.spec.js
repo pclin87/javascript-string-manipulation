@@ -6,8 +6,7 @@ describe("CRLF Converter", () => {
   describe("lf", () => {
     it("should replace CRLF at the beginning of a string", () => {
       const result = lf`\r\nHello there.`;
-
-      // Use `String.prototype.startsWith()`
+    String.prototype.startsWith(`\r\nHello`)
     });
 
     it("should replace CRLF at the end of a string", () => {
