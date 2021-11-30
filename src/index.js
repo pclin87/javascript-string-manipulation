@@ -1,5 +1,10 @@
 // Create a tagged template lf`...` that formats text using LF line endings.
-var lf = () => {};
+var lf = (stringLiteralArray, ...values) => {
+  return stringLiteralArray.reduce((result, literal, index) => {
+    let value = (values[index] != null ? values[index] : "")
+    return `${result}${literal}${value}`
+  }, "")
+};
 
 // Create a tagged template cr`...` that formats text using CR line endings.
 var cr = () => {};
