@@ -19,7 +19,7 @@ describe("CRLF Converter", () => {
     it("should replace CRLF in the middle of a string", () => {
       const result = lf`Hello \r\n\r\nthere.`;
 
-      assert(result.includes('\n'))
+      assert(result.includes('o \n\nt'))
     });
   });
 });
