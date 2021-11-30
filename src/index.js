@@ -1,6 +1,7 @@
 // Create a tagged template lf`...` that formats text using LF line endings.
 var lf = (stringLiteralArray, ...values) => {
   return stringLiteralArray.reduce((result, literal, index) => {
+    if(!disableConverter){
     const transformedString = transformLineEnding(literal, LineEndings.LF)
 
     const transformedValue = (
@@ -9,6 +10,7 @@ var lf = (stringLiteralArray, ...values) => {
       : "")
     
       return `${result}${transformedString}${transformedValue}`
+    }
   }, "")
 };
 
