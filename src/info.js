@@ -4,7 +4,8 @@ const help = `Usage: crlf-convert [CR|LF|CRLF]
 
 Converts text between newline (\\n), carriage return (\\r), and combined
 (\\r\\n) line endings.
-         
+     
+
 Options:
 
 [CR|LF|CRLF]: Desired line ending
