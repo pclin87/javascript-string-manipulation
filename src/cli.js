@@ -1,8 +1,6 @@
-var index = require("./index.js");
 const LineEndings = require("./index.js").LineEndings;
 const transformLineEnding = require("./index.js").transformLineEnding;
 
-var helpText = require("./info.js");
 const help = require("./info.js").help;
 const usage = require("./info.js").usage;
 
