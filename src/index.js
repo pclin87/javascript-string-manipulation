@@ -16,7 +16,7 @@ var lf = (stringLiteralArray, ...values) => {
 var cr = (string, ...values) => {
   return string.reduce((result, literal, index) => {
     const transformedString = transformLineEnding(literal, LineEndings.CR)
-    let transformedValue = (value[index] != null ? values[index] : "")
+    let transformedValue = (values[index] != null ? values[index] : "")
 
     if(!Object.getOwnPropertySymbols(transformedValue).includes(disableConverter)) {
       transformedValue = transformLineEnding(transformedValue, LineEndings.CR)
@@ -29,7 +29,7 @@ var cr = (string, ...values) => {
 var crlf = (string, ...values) => {
   return string.reduce((result, literal, index) => {
     const transformedString = transformLineEnding(literal, LineEndings.CRLF)
-    let transformedValue = (value[index] != null ? values[index] : "")
+    let transformedValue = (values[index] != null ? values[index] : "")
 
     if(!Object.getOwnPropertySymbols(transformedValue).includes(disableConverter)) {
       transformedValue = transformLineEnding(transformedValue, LineEndings.CRLF)
